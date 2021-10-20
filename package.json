@@ -1,7 +1,7 @@
 {
-  "name": "logger",
+  "name": "@pkm_kailow/logger",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple debug logger which uses the DEBUG environment variable as reference",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
