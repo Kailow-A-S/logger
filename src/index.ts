@@ -87,9 +87,3 @@ export function trace(msg: any, error?: Error, ...optionalParams: any[]): void {
 export const fullObjString = (node: any) => {
   return inspect(node, false, null, true)
 }
-
-err('hello')
-info('hello')
-debug('hello')
-verbose('hello')
-full('hello')
