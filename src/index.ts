@@ -1,5 +1,8 @@
 import { inspect } from 'util'
 
+const DEV = process.env.NODE_ENV === 'development'
+const TEST = process.env.NODE_ENV === 'test'
+
 enum TermColors {
   reset = '\x1b[0m',
   error = '\x1b[1;31m', // red
@@ -17,11 +20,11 @@ const generateLogString = (color: TermColors, msg: any) => {
 const getDebugLevel = (debug?: string): number => {
   if (!debug) return 0
   const debugLC = debug.toLowerCase()
-  if (debug === '1' || debugLC === 'warn') return 1 // Turn on warn()
-  if (debug === '2' || debugLC === 'info') return 2 // Turn on info() and warn()
-  if (debug === '3' || debugLC === 'debug') return 3 // Turn on info() and warn()
-  if (debug === '4' || debugLC === 'verbose') return 4 // Turn on debug(), info() and warn()
-  if (debug === '5' || debugLC === 'developer') return 5 // Turn on debug(), info() and warn()
+  if (debug === '1' || debugLC === 'warn') return 1
+  if (debug === '2' || debugLC === 'info' || TEST) return 2
+  if (debug === '3' || debugLC === 'debug' || DEV) return 3
+  if (debug === '4' || debugLC === 'verbose') return 4
+  if (debug === '5' || debugLC === 'developer') return 5
   return 0 // Only err()
 }
 
