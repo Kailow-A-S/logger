@@ -18,13 +18,11 @@ const generateLogString = (color: TermColors, msg: any) => {
 }
 
 const getDebugLevel = (debug?: string): number => {
-  if (!debug) return 0
-  const debugLC = debug.toLowerCase()
-  if (debug === '1' || debugLC === 'warn') return 1
-  if (debug === '2' || debugLC === 'info' || TEST) return 2
-  if (debug === '3' || debugLC === 'debug' || DEV) return 3
-  if (debug === '4' || debugLC === 'verbose') return 4
-  if (debug === '5' || debugLC === 'developer') return 5
+  if (debug === '1') return 1
+  if (debug === '2'|| TEST) return 2
+  if (debug === '3'|| DEV) return 3
+  if (debug === '4') return 4
+  if (debug === '5') return 5
   return 0 // Only err()
 }
 
