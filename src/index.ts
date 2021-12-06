@@ -4,13 +4,13 @@ const DEV = process.env.NODE_ENV === 'development'
 const TEST = process.env.NODE_ENV === 'test'
 
 enum TermColors {
-  reset = '\x1b[0m',
-  error = '\x1b[1;31m', // red
-  warning = '\x1b[1;33m', // yellow
-  info = '\x1b[1;34m', // blue
-  debug = '\x1b[1;36m', // cyan
-  verbose = '\x1b[34m', // green
-  developer = '\x1b[35m', // magenta
+  reset = '\u001b[0m',
+  error = '\u001b[38;5;196m',
+  warning = '\u001b[38;5;11m',
+  info = '\u001b[38;5;45m',
+  debug = '\u001b[38;5;106m',
+  verbose = '\u001b[38;5;189m',
+  developer = '\u001b[38;5;209m',
 }
 
 const generateLogString = (color: TermColors, msg: any) => {
@@ -18,8 +18,8 @@ const generateLogString = (color: TermColors, msg: any) => {
 }
 
 const getDebugLevel = (debug?: string): number => {
-  if (debug === '1') return 1
-  if (debug === '2'|| TEST) return 2
+  if (debug === '1'|| TEST) return 1
+  if (debug === '2') return 2
   if (debug === '3'|| DEV) return 3
   if (debug === '4') return 4
   if (debug === '5') return 5
@@ -87,3 +87,9 @@ export function trace(msg: any, error?: Error, ...optionalParams: any[]): void {
 export const fullObjString = (node: any) => {
   return inspect(node, false, null, true)
 }
+
+err('hello')
+info('hello')
+debug('hello')
+verbose('hello')
+full('hello')
