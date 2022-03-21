@@ -1,5 +1,12 @@
 import { inspect } from 'util'
 
+function isBrowser() {
+  if (typeof window !== 'undefined') {
+    return true
+  }
+  return false
+}
+
 export enum TermColors {
   reset = '\u001b[0m',
   error = '\u001b[38;5;196m',
@@ -10,8 +17,12 @@ export enum TermColors {
   developer = '\u001b[38;5;209m',
 }
 
-export const generateLogString = (color: TermColors, msg: any) => {
-  return `${color}${msg}${TermColors.reset}`
+export const generateLogString = (color: TermColors, msg: any): string => {
+  if (isBrowser()) {
+    return `${msg}`
+  } else {
+    return `${color}${msg}${TermColors.reset}`
+  }
 }
 
 export const getDebugLevel = (debug?: string): number => {
