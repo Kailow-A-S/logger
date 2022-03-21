@@ -1,16 +1,20 @@
 {
   "name": "@pkm_kailow/logger",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "A simple debug logger which uses the DEBUG environment variable as reference",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "prepack": "npm run build",
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js\""
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Peter K. Moss",
+  "license": "MIT",
+  "homepage": "https://github.com/Kailow-A-S/logger",
+  "repository": "https://github.com/Kailow-A-S/logger",
+  "bugs": "https://github.com/Kailow-A-S/logger/issues",
   "devDependencies": {
     "@types/node": "^16.11.1",
     "tsc-watch": "^4.5.0",
