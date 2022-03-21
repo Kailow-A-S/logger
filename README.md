@@ -1,6 +1,6 @@
 # Logger
 
-This is a simple package that provides some functionality for logging in a node environment (Browser support is in the works).
+This is a simple package that provides some functionality for logging in a node environment or browser.
 
 ## Install and usage
 
